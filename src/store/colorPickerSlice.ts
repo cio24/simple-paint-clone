@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface ColorPickerState {
   activeColor: string;
   displayColorPicker: boolean;
+  isMouseDown: boolean;
 }
 
 const initialState: ColorPickerState = {
   activeColor: "#000000",
   displayColorPicker: false,
+  isMouseDown: false
 };
 
 export const colorPickerSlice = createSlice({
@@ -19,12 +21,14 @@ export const colorPickerSlice = createSlice({
     },
     setActiveColor: (state, action: PayloadAction<string>) => {
       state.activeColor = action.payload;
-      console.log("color has been changed", action.payload);
+    },
+    setIsMouseDown: (state, action: PayloadAction<boolean>) => {
+      state.isMouseDown = action.payload;
     },
   },
 });
 
-export const { setDisplayColorPicker, setActiveColor } =
+export const { setDisplayColorPicker, setActiveColor, setIsMouseDown } =
   colorPickerSlice.actions;
 
 export default colorPickerSlice.reducer;

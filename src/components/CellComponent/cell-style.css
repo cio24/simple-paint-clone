@@ -1,5 +1,5 @@
 .cell {
   aspect-ratio: 1;
-  border: solid 1px;
+  border: solid 1px #dddddd;
   box-sizing: border-box;
 }
